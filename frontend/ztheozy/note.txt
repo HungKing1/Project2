@@ -1,7 +1,0 @@
-useState
-useEffect
-useParams
-
-be
-req.params
-req.query
