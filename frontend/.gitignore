@@ -11,7 +11,7 @@ node_modules
 dist
 dist-ssr
 *.local
-ztheory
+ztheory/note.txt
 
 # Editor directories and files
 .vscode/*
