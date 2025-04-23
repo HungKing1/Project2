@@ -12,7 +12,7 @@ const Home = () => {
       <JobListing />
       <Footer />
     </div>
-  )
-}
+    )
+  }
 
 export default Home
