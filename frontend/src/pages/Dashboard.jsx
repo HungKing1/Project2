@@ -1,11 +1,26 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const { companyData } = useContext(AppContext);
+  const { companyData, setCompanyData, setCompanyToken } = useContext(AppContext);
+
+  //log out
+  const logOut = () => {
+    setCompanyData(null)
+    setCompanyToken(null)
+    localStorage.removeItem("companyToken")
+    navigate("/")
+  }
+
+  useEffect(() => {
+    if(companyData) {
+      navigate("/dashboard/manage-jobs")
+    }
+  }, [companyData])
+
   return (
     <div>
       {/* Navbar for Recruiter Panel */}
@@ -22,8 +37,8 @@ const Dashboard = () => {
             <div className="col-auto d-flex gap-3 align-items-center">
               <p className="mb-0">Welcome, {companyData.name}</p>
               <div className="d-flex gap-2">
-                <img src={companyData.image} alt="" />
-                <button className="btn border noflexwrap">Log out</button>
+                <img src={companyData.image} alt="" style={{ maxWidth: '40px', height: 'auto' }}/>
+                <button onClick={logOut} className="btn border noflexwrap">Log out</button>
               </div>
             </div>
           )}

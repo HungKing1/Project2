@@ -7,17 +7,24 @@ import Footer from '../components/Footer'
 import { assets } from '../assets/assets'
 import moment from 'moment'
 import JobCard from '../components/JobCard'
+import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const ApplyJob = () => {
   const {id} = useParams()
   const [jobData, setJobData] = useState(null)
-  const {jobs} = useContext(AppContext)
+  const {jobs, backendUrl} = useContext(AppContext)
 
   const fetchJob = async () => {
-    const data = jobs.filter(job => job._id === id)
-    if(data.length !== 0) {
-      setJobData(data[0])
-      console.log(data[0])
+    try {
+      const {data} = await axios.get(backendUrl + `api/jobs/${id}`)
+      if(data.success) {
+        setJobData(data.job)
+      } else {
+        toast.error(data.message)
+      }
+    } catch (error) {
+      toast.error(error.message)
     }
   } 
 
@@ -34,8 +41,8 @@ const ApplyJob = () => {
             <div className='col-auto me-auto d-flex flex-wrap gap-4 align-self-center ms-4'>
               <div className='p-4 border rounded'
               style={{backgroundColor: 'white'}}>
-                <img src={assets.company_icon} alt="" 
-                style={{transform: 'scale(1.5)'}}/>
+                <img src={jobData.companyId.image} alt="" 
+                style={{transform: 'scale(1.5)', maxWidth: '40px', height: 'auto'}}/>
               </div>
               <div>
                 <h3 className='fs-2'>{jobData.title}</h3>
