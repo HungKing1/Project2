@@ -107,7 +107,7 @@ export const postJob = async (req, res) => {
     } catch (error) {
         res.json({success: false, message: error.message})
     }
-    res.json({success: true, message: "Succescful "})
+    // res.json({success: true, message: "Succescful "}) //lôix set header 
 }
 
 //get company job applicants
