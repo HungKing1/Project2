@@ -24,6 +24,7 @@ const JobListing = () => {
             prev => prev.includes(location) ? prev.filter(c => c !== location) : [...prev, location]
         )
     }
+    console.log("jobs", jobs)
 
     useEffect(() => {
         const matchesCategory = job => selectedCategories.length === 0 || selectedCategories.includes(job.category)

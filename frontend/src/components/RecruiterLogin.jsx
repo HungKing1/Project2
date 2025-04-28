@@ -73,7 +73,7 @@ const RecruiterLogin = () => {
     }
   }, []) 
   return (
-    <div className="d-flex justify-content-center align-items-center position-absolute top-0 start-0 end-0 bottom-0 z-1 bg-dark bg-opacity-25 backdrop-blur">
+    <div className="d-flex justify-content-center align-items-center position-fixed top-0 start-0 end-0 bottom-0 z-1 bg-dark bg-opacity-25 backdrop-blur">
       <form
         onSubmit={onSubmitHandler}
         action=""
