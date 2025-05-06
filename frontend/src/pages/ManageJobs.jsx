@@ -14,7 +14,7 @@ const ManageJobs = () => {
 
   const fetchCompanyJobs = async () => {
     try {
-      const {data} = await axios.get(backendUrl + "api/company/list-jobs", 
+      const {data} = await axios.get(backendUrl + "/api/company/list-jobs", 
         {headers: {token: companyToken}}
       )
       if(data.success) {
@@ -30,7 +30,7 @@ const ManageJobs = () => {
 
   const changeJobVisibility = async (id) => {
     try {
-      const {data} = await axios.post(backendUrl + "api/company/change-visibility", 
+      const {data} = await axios.post(backendUrl + "/api/company/change-visibility", 
       {id}, 
       {headers: {token: companyToken}})
       if(data.success) {
