@@ -21,7 +21,7 @@ export const NavBar = () => {
             user
             ?
             (<div className='col-auto d-flex py-3  gap-3 align-items-center'>
-              <Link to={'/applications'} className='m-0'>Applied Jobs</Link>
+              <Link to={'/applications'} className='m-0 link-underline link-underline-opacity-0 link-dark'>Applied Jobs</Link>
               <p className='m-0 d-none d-sm-inline-block'>| Hi, {user.firstName+ ' ' + user.lastName}</p>
               <UserButton/> 
             </div>)

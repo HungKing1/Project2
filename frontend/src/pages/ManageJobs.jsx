@@ -5,11 +5,12 @@ import { useNavigate } from 'react-router-dom'
 import { AppContext } from '../context/AppContext'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import Loading from '../components/Loading'
 
 const ManageJobs = () => {
   const navigate = useNavigate()  
   
-  const [jobs, setJobs] = useState([])
+  const [jobs, setJobs] = useState(false)
   const {backendUrl, companyToken} = useContext(AppContext)
 
   const fetchCompanyJobs = async () => {
@@ -19,7 +20,7 @@ const ManageJobs = () => {
       )
       if(data.success) {
         setJobs(data.jobsData.reverse()) //getCompanyPostedJob
-        console.log(data.jobsData)
+        //console.log(data.jobsData)
       } else {
         toast.error(data.message)
       }
@@ -49,7 +50,7 @@ const ManageJobs = () => {
     }
   }, [companyToken])
 
-  return (
+  return jobs ? jobs.length === 0 ? (<div>No Jobs Available</div>) : (
     <div  className='p-4 border rounded'>
       <div>
         <table style={{width: "70vw"}}>
@@ -84,7 +85,7 @@ const ManageJobs = () => {
         onClick={() => navigate('/dashboard/add-job')}>Add new job</button>
       </div>
     </div>
-  )
+  ) : <Loading />
 }
 
 export default ManageJobs

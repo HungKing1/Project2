@@ -31,7 +31,7 @@ const RecruiterLogin = () => {
         //data(body): object
 
         if(data.success) {
-          console.log(data)
+          //console.log(data)
           setCompanyData(data)
           setCompanyToken(data.token)
           localStorage.setItem("companyToken", data.token) // lưu trữ lâu dài 
@@ -49,7 +49,7 @@ const RecruiterLogin = () => {
 
         const {data} = await axios.post(backendUrl + "/api/company/register", formData)
         if(data.success) {
-          console.log(formData)
+          //console.log(formData)
           setCompanyData(data)
           setCompanyToken(data.token)
           localStorage.setItem("companyToken", data.token) // lưu trữ lâu dài 

@@ -29,7 +29,7 @@ export const applyForJob = async(req, res) => {
             return res.json({success: false, message: "Already Applied"})
         }
 
-        const jobData = await Job.findById({jobId})
+        const jobData = await Job.findById(jobId)
         if(!jobData) {
             return res.json({success: false, message: "Job not found"})
         }
@@ -38,7 +38,7 @@ export const applyForJob = async(req, res) => {
             companyId: jobData.companyId,
             userId: userId,
             jobId: jobId,
-            data: Date.now()
+            date: Date.now()
         })
         res.json({success: true, message: "Applied successfully"})
     } catch (error) {
@@ -68,11 +68,11 @@ export const getUserJobApplications = async(req, res) =>{
 export const updateUserResume = async(req, res) => {
     try {
         const userId = req.auth.userId
-        const resumeFile = req.resumeFile
+        const resumeFile = req.file
         const userData = await User.findById(userId)
     
         if(resumeFile) {
-            const resumeUpload = cloudinary.uploader.upload(resumeFile.path)
+            const resumeUpload = await cloudinary.uploader.upload(resumeFile.path)
             userData.resume = resumeUpload.secure_url
         }
     

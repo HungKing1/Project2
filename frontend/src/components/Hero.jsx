@@ -14,9 +14,7 @@ const Hero = () => {
       location: locationRef.current.value
     })
     setIsSearched(true)
-    console.log(
-     searchFilter
-    )
+    //console.log(searchFilter)
   }
 
   return (
