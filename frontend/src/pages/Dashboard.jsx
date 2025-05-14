@@ -2,49 +2,26 @@ import React, { useContext, useEffect } from "react";
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { AppContext } from "../context/AppContext";
+import { Button } from "react-bootstrap";
+import { Link } from 'react-router-dom'
+import NavBarRecruiter from "../components/NavBarRecruiter";
 
 const Dashboard = () => {
-  const navigate = useNavigate();
-  const { companyData, setCompanyData, setCompanyToken } = useContext(AppContext);
+  // const navigate = useNavigate();
+  // const { companyData, setCompanyData, setCompanyToken, companyToken } = useContext(AppContext);
 
   //log out
-  const logOut = () => {
-    setCompanyData(null)
-    setCompanyToken(null)
-    localStorage.removeItem("companyToken")
-    navigate("/")
-  }
-
-  useEffect(() => {
-    if(companyData) {
-      navigate("/dashboard/manage-jobs")
-    }
-  }, [companyData])
+  // useEffect(() => {
+  //   if(companyData) {
+  //     navigate("/dashboard/manage-jobs")
+  //   }
+  // }, [companyData])
 
   return (
     <div>
       {/* Navbar for Recruiter Panel */}
-      <div className="shadow p-4">
-        <div className="row ">
-          <div className="col-auto me-auto">
-            <img
-              onClick={() => navigate("/")}
-              src={assets.logo}
-              style={{ cursor: "pointer" }}
-            />
-          </div>
-          {companyData && (
-            <div className="col-auto d-flex gap-3 align-items-center">
-              <p className="mb-0">Welcome, {companyData.name}</p>
-              <div className="d-flex gap-2">
-                <img src={companyData.image} alt="" style={{ maxWidth: '40px', height: 'auto' }}/>
-                <button onClick={logOut} className="btn border noflexwrap">Log out</button>
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
       {/* Left side bar with option to add job, manage job, view applications */}
+      <NavBarRecruiter/>
       <div>
         <div className="row mt-2">
           <div className="col-2 flex-column gap-3">
@@ -89,6 +66,14 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <Link to="/">
+        <Button 
+          className="nav-button dashboard-button"
+        >
+          <i className="bi bi-house-door"></i>
+          Home
+        </Button>
+      </Link>
     </div>
   );
 };

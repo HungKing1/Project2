@@ -4,7 +4,6 @@ import { AppContext } from "../context/AppContext";
 import { toast } from "react-toastify";
 import axios from "axios";
 import Loading from "../components/Loading";
-
 const ViewApplications = () => {
   const {backendUrl, companyToken} = useContext(AppContext)
   const [applicants, setApplicants] = useState(false)
@@ -95,7 +94,7 @@ const ViewApplications = () => {
               </td>
               <td className="py-2 px-4">
                 {
-                  applicant.status !== "Pending"
+                  applicant.status === "Pending"
                   ? 
                     <div className="d-flex gap-2">
                       <button onClick={() => handleUpdateStatus(applicant._id, "Accepted")} className="btn border btn-outline-success">Accept</button>
