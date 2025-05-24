@@ -76,11 +76,11 @@ const JobListing = () => {
                         )
                     }
                 </div>
-                <button className='btn border rounded' onClick={() => {setShowFilter(prev => !prev)}}>
+                {/* <button className='btn border rounded' onClick={() => {setShowFilter(prev => !prev)}}>
                     {
                         showFilter ? 'Filter' : 'Close'
                     }
-                </button>
+                </button> */}
                 {/* Categories Filter */}
                 <div className= {showFilter ? 'd-none d-xl-inline-block' : 'd-none'}>
                     <h4 className='my-4 fs-3'>Search by Categories</h4>

@@ -14,11 +14,12 @@ const JobCard = ({job}) => {
             <button className='btn btn-outline-success text-nowrap my-4 p-2'>{job.location}</button>
             <button className='btn btn-outline-info text-nowrap my-4 p-2'>{job.level}</button>
         </div>
-        <p dangerouslySetInnerHTML={{__html:job.description.slice(0, 150)}}></p>
+        <p dangerouslySetInnerHTML={{__html:job.description.slice(0, 150) + "..."}}></p>
         <div className='d-flex gap-2'>
             <button className='btn btn-primary text-nowrap my-4 p-2'
             onClick={() => {navigate(`/apply-job/${job._id}`), scrollTo(0,0)}}>Apply now</button>
-            <button className='btn border text-nowrap my-4 p-2'>Learn more</button>
+            <button className='btn border text-nowrap my-4 p-2'
+            onClick={() => {navigate(`/apply-job/${job._id}`), scrollTo(0,0)}}>Learn more</button>
         </div>
     </div>
   )

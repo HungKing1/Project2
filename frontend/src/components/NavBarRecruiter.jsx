@@ -33,7 +33,7 @@ const NavBarRecruiter = () => {
             <div className="col-auto d-flex gap-3 align-items-center">
                 <p className="mb-0">Welcome, {companyData.name}</p>
                 <div className="d-flex gap-2">
-                <img src={companyData.image} alt="" style={{ maxWidth: '40px', height: 'auto' }}/>
+                <img src={companyData.image} alt="" style={{ Width: '40px', height: '40px', objectFit: "cover"}}/>
                 <button onClick={logOut} className="btn border noflexwrap">Log out</button>
                 </div>
             </div>

@@ -48,8 +48,8 @@ const Applications = () => {
     }
   }, [user])
   return (
-    <div>
-      <div className='container'>
+    <div className='d-flex flex-column min-vh-100'>
+      <div className='container flex-grow-1'>
         <NavBar />
         <h2 className='my-3 p-2'>Your Resume</h2>
         <div className=''>
@@ -67,7 +67,7 @@ const Applications = () => {
               </label>
             </>
             : <>
-              <a href={userData.resume}
+              <a href={userData?.resume}
               target='_blank'
               className='text-primary px-4 py-2 border border-primary btn bg-primary bg-opacity-25 rounded link-underline link-underline-opacity-0'>Resume</a>
               <button className='btn border rounded px-4 py-2 ms-2'
@@ -113,7 +113,7 @@ const Applications = () => {
           </table>
         </div>
       </div>
-      <Footer />
+      <Footer className=""/>
     </div>
   )
 }

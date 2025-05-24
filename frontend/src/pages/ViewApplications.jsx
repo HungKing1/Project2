@@ -102,7 +102,7 @@ const ViewApplications = () => {
                     </div>
                   :
                     <div>
-                      {applicant.status}
+                      <p className={`mb-0 ${applicant.status === "Accepted" ? "text-success" : "text-danger"}`}>{applicant.status}</p>
                     </div>
                 }
               </td>

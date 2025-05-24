@@ -141,22 +141,22 @@ const RecruiterLogin = () => {
           className="btn btn-outline-primary rounded-pill border"
         >
           {state === "Login"
-            ? "login"
+            ? "Login"
             : isTextDataSubmitted
-            ? "create account"
-            : "next"}
+            ? "Create account"
+            : "Next"}
         </button>
         {state === "Login" ? (
           <p className="p-2 small">
             Don’t have an account?{" "}
-            <span onClick={() => setState("Sign up")} className="text-primary">
+            <span onClick={() => setState("Sign up")} className="text-primary" style={{cursor: "pointer"}}>
               Sign up
             </span>
           </p>
         ) : (
           <p className="p-2 small">
             Already have an account?{" "}
-            <span onClick={() => setState("Login")} className="text-primary">
+            <span onClick={() => setState("Login")} className="text-primary" style={{cursor: "pointer"}}>
               Login
             </span>
           </p>
