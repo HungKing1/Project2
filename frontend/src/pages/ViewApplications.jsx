@@ -15,6 +15,7 @@ const ViewApplications = () => {
       )
 
       if(data.success) {
+        console.log(data.applicants)
         setApplicants(data.applicants.reverse())
       } else {
         toast.error(data.message)
@@ -80,7 +81,7 @@ const ViewApplications = () => {
               <td className="py-2 px-4">{applicant.jobId.location}</td>
               <td className="py-2 px-4">
                 <a
-                  href={applicant.userId.resume}
+                  href={applicant.resume}
                   target="_blank"
                   className="btn rounded border bg-primary bg-opacity-25 py-1"
                 >

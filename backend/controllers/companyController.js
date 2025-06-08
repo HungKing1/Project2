@@ -115,7 +115,7 @@ export const getCompanyJobApplicants = async(req, res) => {
     try {
         const companyId = req.company._id
         const applicants = await JobApplication.find({companyId})
-        .populate("userId", "name image resume")
+        .populate("userId", "name image")
         .populate("jobId", "title description location category level salary")
         .exec()
 
