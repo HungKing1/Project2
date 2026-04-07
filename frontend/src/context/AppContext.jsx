@@ -24,6 +24,7 @@ export const AppContextProvider = (props) => {
     const [companyData, setCompanyData] = useState(null)
     const [userData, setUserData] = useState(null)
     const [userApplications, setUserApplications] = useState([])
+    const [theme, setTheme] = useState(() => localStorage.getItem("theme") || "light")
 
     //fetch jobs data
     const fetchJobs = async () => {
@@ -104,6 +105,15 @@ export const AppContextProvider = (props) => {
         }
     }, [])
 
+    useEffect(() => {
+        document.documentElement.setAttribute("data-bs-theme", theme)
+        localStorage.setItem("theme", theme)
+    }, [theme])
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"))
+    }
+
     useEffect(()=> {
         if(companyToken) {
             fetchCompanyData()
@@ -128,7 +138,8 @@ export const AppContextProvider = (props) => {
         fetchUserData,
         fetchUserApplications,
         userData, setUserData,
-        userApplications, setUserApplications
+        userApplications, setUserApplications,
+        theme, toggleTheme
     };
     return (
         <AppContext.Provider value={value}>
@@ -137,4 +148,3 @@ export const AppContextProvider = (props) => {
         </AppContext.Provider>
     )
 }
-

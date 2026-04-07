@@ -7,7 +7,7 @@ const JobCard = ({job}) => {
   const navigate = useNavigate()
 
   return (
-    <div className='col-3 border shadow p-4 rounded' style={{width: '300px'}}>
+    <div className='col-3 border shadow p-4 rounded app-lift-card app-fade-in-up' style={{width: '300px'}}>
         <img src={job.companyId.image} alt="" className='my-3' style={{ maxWidth: '40px', height: 'auto' }}/>
         <h4 className='fs-5 mb-3'>{job.title}</h4>
         <div className='d-flex gap-2'>

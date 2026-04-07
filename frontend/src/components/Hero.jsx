@@ -19,7 +19,7 @@ const Hero = () => {
 
   return (
     <div>
-      <div className='text-center p-5 bg-info container my-2 rounded'>
+      <div className='text-center p-5 bg-info container my-2 rounded app-fade-in-up'>
           <h2 className='my-3 p-3'>Over 10,000+ jobs to apply</h2>
           <p className='my-3 p-3'>Your Next Big Career Move Starts Right Here - Explore the Best Job Opportunities and Take the First Step Toward Your Future!</p>
           <div className='d-inline-flex justify-content-center p-2 bg-white rounded w-auto  mx-auto gap-2'>
@@ -40,7 +40,7 @@ const Hero = () => {
               <button onClick={onSearch} className='btn border me-0'>Search</button>
           </div>
       </div>
-      <div className='container border shadow rounded p-3'>
+      <div className='container border shadow rounded p-3 app-fade-in-up delay-1'>
         <div className='d-flex gap-5 align-items-center p-3 flex-wrap'>
           <p className='fs-6 m-0'>Trusted by</p>
           <img style={{height: '25px'}} src={assets.microsoft_logo} alt="" />
