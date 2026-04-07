@@ -16,7 +16,7 @@ const App = () => {
   const { showRecruiterLogin, companyToken } = useContext(AppContext);
 
   return (
-    <div>
+    <div className="app-shell bg-body text-body min-vh-100">
       {showRecruiterLogin && <RecruiterLogin />}
       <ToastContainer />
       <Routes>

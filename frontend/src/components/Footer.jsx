@@ -4,7 +4,7 @@ import { assets } from '../assets/assets'
 const Footer = () => {
   return (
     <div className='mt-5'>
-        <div className='shadow rounded'>
+        <div className='shadow rounded bg-body app-fade-in'>
             <div className='container'>
                 <div className='row justify-content-between d-flex'>
                     <div className='col-auto d-flex align-items-center gap-3 p-3'>

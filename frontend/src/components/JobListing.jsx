@@ -57,7 +57,7 @@ const JobListing = () => {
                     {
                         isSearched && (searchFilter.title !== '' || searchFilter.location !== '') && (
                             <>
-                                <h3 className='my-4 fs-3'>Current Search</h3>
+                                <h3 className='my-4 fs-3 app-fade-in'>Current Search</h3>
                                 <div>
                                     {searchFilter.title && (
                                         <span className='p-2 border rounded-3 d-inline-flex gap-2 me-2' style={{backgroundColor: '#20c997'}}>
@@ -120,7 +120,7 @@ const JobListing = () => {
             </div>
             {/* Job cards */}
             <section className='col-xl-9 col-12'>
-                <h3 className='fs-2 mt-4'>Latest jobs</h3>
+                <h3 className='fs-2 mt-4 app-fade-in-up'>Latest jobs</h3>
                 <p className='fs-4'>Get your desired job from top companies</p>
                 <div className='d-flex gap-3 flex-wrap row'>
                     {
